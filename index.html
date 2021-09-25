@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Überschrift -->
+    <div class="headline">
+        <h1>Sleep Calculator</h1>
+    </div>
+    <div class="buttonSection">
+        <p>Schlafen gehen: <span id="showSleepTime">22:00</span></p>
+        <div class="buttonContainer">
+            <button class="button1" onclick="takeSleepTime('21:00')">21:00</button>
+            <button class="button1" onclick="takeSleepTime('21:15')">21:15</button>
+            <button class="button1" onclick="takeSleepTime('21:30')">21:30</button>
+            <button class="button1" onclick="takeSleepTime('21:45')">21:45</button>
+            <button class="button1" onclick="takeSleepTime('22:00')">22:00</button>
+            <button class="button1" onclick="takeSleepTime('22:15')">22:15</button>
+            <button class="button1" onclick="takeSleepTime('22:30')">22:30</button>
+            <button class="button1" onclick="takeSleepTime('22:45')">22:45</button>
+            <button class="button1" onclick="takeSleepTime('23:00')">23:00</button>
+            <button class="button1" onclick="takeSleepTime('23:15')">23:15</button>
+            <button class="button1" onclick="takeSleepTime('23:30')">23:30</button>
+            <button class="button1" onclick="takeSleepTime('23:45')">23:45</button>
+            <button class="button1" onclick="takeSleepTime('00:00')">00:00</button>
+            <button class="button1" onclick="takeSleepTime('00:15')">00:15</button>
+            <button class="button1" onclick="takeSleepTime('00:30')">00:30</button>
+            <button class="button1" onclick="takeSleepTime('00:45')">00:45</button>
+            <button class="button1" onclick="takeSleepTime('01:00')">01:00</button>
+            <button class="button1" onclick="takeSleepTime('01:15')">01:15</button>
+            <button class="button1" onclick="takeSleepTime('01:30')">01:30</button>
+            <button class="button1" onclick="takeSleepTime('01:45')">01:45</button>
+            <button class="button1" onclick="takeSleepTime('02:00')">02:00</button>
+        </div>
+        <br>
+    </div>
+
+    <div class="currentTimeSection">
+        <button class="buttonTime refr" onclick="sleepNow()">Jetzt schlafen gehen</button>
+        <h1 id="currentTime">21:07:00</h1>
+    </div>
+
+    <div class="tableContainer">
+        <table style="width:100%">
+            <tr>
+                <th>Aufstehen</th>
+                <th>Schlafzeit</th>
+            </tr>
+            <tr>
+                <td id="slpInterval_1">22:30</td>
+                <td>01:30</td>
+            </tr>
+            <tr>
+                <td id="slpInterval_2">00:00</td>
+                <td>03:00</td>
+            </tr>
+            <tr>
+                <td id="slpInterval_3">01:30</td>
+                <td>04:30</td>
+            </tr>
+            <tr>
+                <td id="slpInterval_4">03:00</td>
+                <td>06:00</td>
+            </tr>
+            <tr>
+                <td id="slpInterval_5">04:30</td>
+                <td>07:30</td>
+            </tr>
+            <tr>
+                <td id="slpInterval_6">06:00</td>
+                <td>09:00</td>
+            </tr>
+            <tr>
+                <td id="slpInterval_7">07:30</td>
+                <td>10:30</td>
+            </tr>
+            <tr>
+                <td id="slpInterval_8">09:00</td>
+                <td>12:00</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

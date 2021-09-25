@@ -1,0 +1,83 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+    place-items: center;
+}
+
+.headline{
+    grid-column: 1 / 12;
+    grid-row: 1 / 2;
+    /* background-color: cadetblue; */
+    width: 100%;
+}
+
+
+
+.buttonSection{
+    grid-column: 2 / 11;
+    grid-row: 2 / 4;
+    background-color: rgb(222, 223, 223);
+    width: 100%;
+    border-radius: 15px;
+    border: 3px solid gray;
+}
+
+.currentTimeSection{
+    grid-column: 1 / 12;
+    grid-row: 5 / 6;
+    /* background-color: cadetblue; */
+    width: 100%;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.button1{
+    margin: 10px;
+    width: 33%;
+    height: 100%;
+    border-radius: 6px;
+    font-size: 24px;
+}
+
+.refr{
+    margin-top: 20px;
+}
+
+.button1:hover, .refr:hover{
+    background-color: chartreuse;
+    
+}
+
+.tableContainer{
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / 12;
+    grid-row: 7 / 12;
+    text-align: center;
+}
+
+table, th, td {
+    border:1px dotted black;
+    width: 150px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+tr:nth-child(2n+0){
+    background-color: rgb(219, 253, 251);
+}
+
+#showSleepTime{
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
