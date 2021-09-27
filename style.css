@@ -4,31 +4,40 @@ body{
     grid-template-rows: auto;
     text-align: center;
     place-items: center;
+    background: url(Assets/03.04.21-Farbklexe_v3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 }
 
 .headline{
     grid-column: 1 / 12;
     grid-row: 1 / 2;
-    /* background-color: cadetblue; */
     width: 100%;
 }
-
-
 
 .buttonSection{
     grid-column: 2 / 11;
     grid-row: 2 / 4;
-    background-color: rgb(222, 223, 223);
+    background-color: rgba(79, 230, 230, 0.13);
     width: 100%;
     border-radius: 15px;
     border: 3px solid gray;
+    backdrop-filter: blur(30px);
 }
 
 .currentTimeSection{
     grid-column: 1 / 12;
     grid-row: 5 / 6;
-    /* background-color: cadetblue; */
-    width: 100%;
+    width: 80%;
+}
+
+#currentTime{
+    color: rgba(255, 255, 255, 0.993);
+    font-size: 62px;
+    background-color: rgba(51, 190, 190, 0.123);
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
 }
 
 .buttonContainer{
@@ -44,15 +53,21 @@ body{
     height: 100%;
     border-radius: 6px;
     font-size: 24px;
+    background: rgba(14, 146, 199, 0.993);
+    color: white;
 }
 
 .refr{
     margin-top: 20px;
+    background: rgba(14, 146, 199, 0.219);
+    color: white;
+    border-radius: 15px;
 }
 
 .button1:hover, .refr:hover{
     background-color: chartreuse;
-    
+    color: black;
+    box-shadow: 0px 0px 0px 10px rgba(37, 216, 13, 0.507);
 }
 
 .tableContainer{
@@ -64,20 +79,26 @@ body{
 }
 
 table, th, td {
-    border:1px dotted black;
+    border:1px dotted rgba(51, 190, 190, 0.507);
     width: 150px;
     font-weight: bold;
     border-radius: 5px;
+    font-size: 34px;
+    background: rgba(14, 146, 199, 0.068);
+    backdrop-filter: blur(30px);
 }
 
 tr:nth-child(2n+0){
-    background-color: rgb(219, 253, 251);
+    background-color: rgba(219, 253, 251, 0);
 }
 
 #showSleepTime{
-    color: green;
+    color: rgb(12, 245, 12);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
+    backdrop-filter: blur(40px);
 }
+
+
 
 
