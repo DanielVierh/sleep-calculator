@@ -7,11 +7,13 @@ function takeSleepTime(timeVal) {
     const sHour = timeArray[0];
     const sMin = timeArray[1];
     calcSleeptime(parseInt(sHour), parseInt(sMin));
+    showSuccess();
 }
 
 function sleepNow() {
     document.getElementById("showSleepTime").innerHTML = currentHour + ":" + currentMin;
     calcSleeptime(parseInt(currentHour), parseInt(currentMin));
+    showSuccess();
 }
 
 function calcSleeptime(sleepTimeHour, sleepTimeMinute) {
@@ -58,4 +60,13 @@ function addAZero(val) {
         val = "0" + val;
     }
     return val;
+}
+
+
+function showSuccess() {
+    // Kurz eine andere Farbe bei Zelle anzeigen 
+    setTimeout(() => {
+        document.getElementById("slpInterval_1").style.background = "rgba(14, 146, 199, 0.068)";
+    }, 2000);
+        document.getElementById("slpInterval_1").style.background = "blue"; 
 }
