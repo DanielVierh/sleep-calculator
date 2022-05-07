@@ -1,6 +1,6 @@
 body{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
     text-align: center;
     place-items: center;
@@ -8,28 +8,31 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
+    background-color: black;
 }
 
 .headline{
-    grid-column: 1 / 12;
+    grid-column: 1 / 13;
     grid-row: 1 / 2;
     width: 100%;
 }
 
 .buttonSection{
-    grid-column: 2 / 11;
+    grid-column: 2 / 12;
     grid-row: 2 / 4;
     background-color: rgba(79, 230, 230, 0.13);
     width: 100%;
+    max-width: 600px;
     border-radius: 15px;
     border: 3px solid gray;
     backdrop-filter: blur(30px);
 }
 
 .currentTimeSection{
-    grid-column: 1 / 12;
+    grid-column: 1 / 13;
     grid-row: 5 / 6;
     width: 80%;
+    max-width: 300px;
 }
 
 #currentTime{
@@ -73,7 +76,7 @@ body{
 .tableContainer{
     display: flex;
     justify-content: center;
-    grid-column: 1 / 12;
+    grid-column: 1 / 13;
     grid-row: 7 / 12;
     text-align: center;
 }
@@ -99,7 +102,3 @@ tr:nth-child(2n+0){
     font-size: 24px;
     backdrop-filter: blur(40px);
 }
-
-
-
-
