@@ -1,5 +1,6 @@
 let currentHour = "";
 let currentMin = "";
+const btn_toggle_wecker = document.getElementById("btn_toggle_wecker");
 
 function takeSleepTime(timeVal) {
     document.getElementById("showSleepTime").innerHTML = timeVal;
@@ -70,3 +71,15 @@ function showSuccess() {
     }, 2000);
         document.getElementById("slpInterval_1").style.background = "blue"; 
 }
+
+const hidden_Container = document.getElementById("hidden_Container");
+let wecker_is_hidden = true;
+btn_toggle_wecker.addEventListener("click", ()=> {
+    if(wecker_is_hidden) {
+        wecker_is_hidden = false;
+        hidden_Container.classList.add("active");
+    }else {
+        wecker_is_hidden = true;
+        hidden_Container.classList.remove("active")
+    }
+})

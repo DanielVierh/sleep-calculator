@@ -1,0 +1,145 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  text-align: center;
+  place-items: center;
+  background: url(Assets/03.04.21-Farbklexe_v3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  background-color: black;
+  font-family: sans-serif;
+}
+
+.headline {
+  grid-column: 1/13;
+  grid-row: 1/2;
+  width: 100%;
+}
+
+.buttonSection {
+  grid-column: 2/12;
+  grid-row: 2/4;
+  background-color: rgba(79, 230, 230, 0.13);
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  border: 3px solid gray;
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+}
+
+.currentTimeSection {
+  grid-column: 1/13;
+  grid-row: 5/6;
+  width: 80%;
+  max-width: 300px;
+}
+
+#currentTime {
+  color: rgba(255, 255, 255, 0.993);
+  font-size: 62px;
+  background-color: rgba(51, 190, 190, 0.123);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  border-radius: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.button1 {
+  margin: 10px;
+  width: 33%;
+  height: 100%;
+  border-radius: 6px;
+  font-size: 24px;
+  background: rgba(14, 146, 199, 0.993);
+  color: white;
+}
+
+.refr {
+  margin-top: 20px;
+  background: rgba(14, 146, 199, 0.219);
+  color: white;
+  border-radius: 15px;
+}
+
+.button1:hover,
+.refr:hover {
+  background-color: chartreuse;
+  color: black;
+  box-shadow: 0px 0px 0px 10px rgba(37, 216, 13, 0.507);
+}
+
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  grid-column: 1/13;
+  grid-row: 7/12;
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 1px dotted rgba(51, 190, 190, 0.507);
+  width: 150px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 34px;
+  background: rgba(14, 146, 199, 0.068);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  transition: ease-in-out 1s;
+}
+
+tr:nth-child(2n+0) {
+  background-color: rgba(219, 253, 251, 0);
+}
+
+#showSleepTime {
+  color: rgb(12, 245, 12);
+  font-weight: bold;
+  font-size: 24px;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+}
+
+.wecker-section {
+  grid-column: 1/-1;
+  background-color: rgb(16, 69, 87);
+  border-radius: 15px;
+  margin: 15px;
+}
+.wecker-section .hidden-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 1s ease;
+}
+.wecker-section .hidden-content.active {
+  grid-template-rows: 1fr;
+}
+.wecker-section .hidden-content .content {
+  overflow: hidden;
+}
+.wecker-section .button-wecker {
+  margin: 10px;
+  width: 33%;
+  height: 100%;
+  border-radius: 6px;
+  font-size: 24px;
+  background: rgba(14, 146, 199, 0.993);
+  color: white;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  font-size: 1em;
+  box-shadow: inset 0 0 5px white;
+  color: white;
+}/*# sourceMappingURL=style.css.map */

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sleep Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body>
@@ -88,8 +88,20 @@
         </table>
     </div>
 
+    <div class="wecker-section">
+        <div class="button-wecker" id="btn_toggle_wecker">Wecker anzeigen</div>
+        <div class="hidden-content" id="hidden_Container">
+            <div class="content">
+                <h3>Wecker</h3>
+                <input type="time" id="inp_wecker">
+                <p></p>
+            </div>
+        </div>
+    </div>
+   
 
-    <script src="app.js"></script>
+
+    <script src="src/js/app.js"></script>
 </body>
 
 </html>
