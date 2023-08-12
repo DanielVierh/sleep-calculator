@@ -7,7 +7,24 @@ const inp_wecker = document.getElementById("inp_wecker");
 const outp_wakeup_time = document.getElementById("outp_wakeup_time");
 let wecker_is_hidden = true;
 let wecker_is_set = false;
-let stand_up_time = inp_wecker.value;
+let stand_up_time;
+
+
+window.onload = () => {
+    if (localStorage.getItem("stored_Wakeup_time") != "") {
+        try {
+            stand_up_time = JSON.parse(localStorage.getItem("stored_Wakeup_time"));
+            if(stand_up_time !== '') {
+                wecker_is_set = true;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+
+
 
 function splitVal(val, marker, pos) {
     const elem = val.split(marker);
@@ -134,7 +151,7 @@ btn_save_wecker.addEventListener("click", () => {
     stand_up_time = inp_wecker.value;
     if (stand_up_time !== '') {
         wecker_is_set = true;
-
+        localStorage.setItem('stored_Wakeup_time', JSON.stringify(stand_up_time));
         // Wecker Settings schließen
         hidden_Container.classList.remove("active")
     } else {
