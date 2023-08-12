@@ -61,6 +61,7 @@ body {
   font-size: 24px;
   background: rgba(14, 146, 199, 0.993);
   color: white;
+  cursor: pointer;
 }
 
 .refr {
@@ -125,6 +126,7 @@ tr:nth-child(2n+0) {
 }
 .wecker-section .hidden-content.active {
   grid-template-rows: 1fr;
+  padding: 20px;
 }
 .wecker-section .hidden-content .content {
   overflow: hidden;
@@ -138,6 +140,7 @@ tr:nth-child(2n+0) {
   font-size: 24px;
   background: rgba(14, 146, 199, 0.993);
   color: white;
+  cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;
   padding: 5px;
@@ -156,4 +159,5 @@ tr:nth-child(2n+0) {
   margin: 30px;
   border-radius: 8px;
   background-color: green;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

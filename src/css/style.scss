@@ -20,6 +20,7 @@ body {
     font-size: 24px;
     background: rgba(14, 146, 199, 0.993);
     color: white;
+    cursor: pointer;
 }
 
 .headline {
@@ -123,12 +124,12 @@ tr:nth-child(2n+0) {
         background-color: rgb(16, 69, 87);
         border-radius: 15px;
         margin: 15px 0;
-      
         grid-template-rows: 0fr;
         transition: grid-template-rows 1s ease;
 
         &.active {
             grid-template-rows: 1fr;
+            padding: 20px;
         }
 
         .content {
@@ -156,5 +157,6 @@ tr:nth-child(2n+0) {
         margin: 30px;
         border-radius: 8px;
         background-color: green;
+        cursor: pointer;
     }
 }

@@ -5,6 +5,7 @@ const hidden_Container = document.getElementById("hidden_Container");
 const btn_save_wecker = document.getElementById("btn_save_wecker");
 const inp_wecker = document.getElementById("inp_wecker");
 const outp_wakeup_time = document.getElementById("outp_wakeup_time");
+const outp_wecker_label = document.getElementById("outp_wecker_label")
 let wecker_is_hidden = true;
 let wecker_is_set = false;
 let stand_up_time;
@@ -16,6 +17,7 @@ window.onload = () => {
             stand_up_time = JSON.parse(localStorage.getItem("stored_Wakeup_time"));
             if(stand_up_time !== '') {
                 wecker_is_set = true;
+                inp_wecker.value = stand_up_time;
             }
         } catch (error) {
             console.log(error);
@@ -97,7 +99,7 @@ function getNow() {
         const wakeup_Minute = splitVal(stand_up_time, ':', 1);
         const current_Hour = hours;
         const current_Minute = minutes;
-
+        outp_wecker_label.innerHTML = `Wecker [${stand_up_time}]`
         if (wakeup_Hour > current_Hour) {
             const wakeup_date = new Date(`${month} ${day} ${year} ${addAZero(wakeup_Hour)}:${addAZero(wakeup_Minute)}`)
             const now_date = new Date(`${month} ${day} ${year} ${addAZero(current_Hour)}:${addAZero(current_Minute)}`)
@@ -108,14 +110,6 @@ function getNow() {
             console.log(diff_minutes(wakeup_date, now_date));
             outp_wakeup_time.innerHTML = diff_minutes(wakeup_date, now_date)
         }
-    }
-
-    return {
-        hour: currentHour,
-        minute: currentMin,
-        day: day,
-        month: month,
-        year: year
     }
 }
 
