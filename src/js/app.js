@@ -1,6 +1,19 @@
 let currentHour = "";
 let currentMin = "";
 const btn_toggle_wecker = document.getElementById("btn_toggle_wecker");
+const hidden_Container = document.getElementById("hidden_Container");
+const btn_save_wecker = document.getElementById("btn_save_wecker");
+const inp_wecker = document.getElementById("inp_wecker");
+const outp_wakeup_time = document.getElementById("outp_wakeup_time");
+let wecker_is_hidden = true;
+let wecker_is_set = false;
+let stand_up_time = inp_wecker.value;
+
+function splitVal(val, marker, pos) {
+    const elem = val.split(marker);
+    const retVal = elem[pos];
+    return retVal;
+}
 
 function takeSleepTime(timeVal) {
     document.getElementById("showSleepTime").innerHTML = timeVal;
@@ -22,7 +35,7 @@ function calcSleeptime(sleepTimeHour, sleepTimeMinute) {
     // Die übergebene gesplittete Uhrzeit Stunden in Sekunden rechnen und Restminuten hinzufügen
     let sleepTimeInSeconds = ((sleepTimeHour * 60) + sleepTimeMinute) * 60;
     // Schleife für Tabelle 
-    for(let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= 8; i++) {
         // Ein Intervall wird hinzugefügt
         sleepTimeInSeconds += 5400;
         // Wenn größer als 24 in Sekunden dann Differenz bilden
@@ -40,24 +53,57 @@ function calcSleeptime(sleepTimeHour, sleepTimeMinute) {
 
 String.prototype.toHHMMSS = function () {
     var csec_num = parseInt(this, 10);
-    var chours   = Math.floor(csec_num / 3600);
+    var chours = Math.floor(csec_num / 3600);
     var cminutes = Math.floor((csec_num - (chours * 3600)) / 60);
-    return addAZero(chours)+':'+addAZero(cminutes);
+    return addAZero(chours) + ':' + addAZero(cminutes);
 }
 
 setInterval(() => {
+    getNow()
+}, 1000);
+
+function getNow() {
     let date = new Date();
+    let day = date.getDate();
+    let year = date.getFullYear();
+    let month = splitVal(date + '', ' ', 1);
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     document.getElementById("currentTime").innerHTML = addAZero(hours) + ":" + addAZero(minutes) + ":" + addAZero(seconds);
     currentHour = addAZero(hours);
     currentMin = addAZero(minutes);
-}, 1000);
 
+    if (wecker_is_set === true) {
+        // TODO: So dynamisch programmieren, dass wirkich ein Tag draufgerechnet wird (Ende des Monats kann es zu Fehlern kommen)
+        const wakeup_Hour = splitVal(stand_up_time, ':', 0);
+        const wakeup_Minute = splitVal(stand_up_time, ':', 1);
+        const current_Hour = hours;
+        const current_Minute = minutes;
+
+        if (wakeup_Hour > current_Hour) {
+            const wakeup_date = new Date(`${month} ${day} ${year} ${addAZero(wakeup_Hour)}:${addAZero(wakeup_Minute)}`)
+            const now_date = new Date(`${month} ${day} ${year} ${addAZero(current_Hour)}:${addAZero(current_Minute)}`)
+            outp_wakeup_time.innerHTML = diff_minutes(wakeup_date, now_date)
+        } else {
+            const wakeup_date = new Date(`${month} ${day + 1} ${year} ${addAZero(wakeup_Hour)}:${addAZero(wakeup_Minute)}`)
+            const now_date = new Date(`${month} ${day} ${year} ${addAZero(current_Hour)}:${addAZero(current_Minute)}`)
+            console.log(diff_minutes(wakeup_date, now_date));
+            outp_wakeup_time.innerHTML = diff_minutes(wakeup_date, now_date)
+        }
+    }
+
+    return {
+        hour: currentHour,
+        minute: currentMin,
+        day: day,
+        month: month,
+        year: year
+    }
+}
 
 function addAZero(val) {
-    if(val < 10){
+    if (val < 10) {
         val = "0" + val;
     }
     return val;
@@ -69,17 +115,41 @@ function showSuccess() {
     setTimeout(() => {
         document.getElementById("slpInterval_1").style.background = "rgba(14, 146, 199, 0.068)";
     }, 2000);
-        document.getElementById("slpInterval_1").style.background = "blue"; 
+    document.getElementById("slpInterval_1").style.background = "blue";
 }
 
-const hidden_Container = document.getElementById("hidden_Container");
-let wecker_is_hidden = true;
-btn_toggle_wecker.addEventListener("click", ()=> {
-    if(wecker_is_hidden) {
+
+btn_toggle_wecker.addEventListener("click", () => {
+    if (wecker_is_hidden) {
         wecker_is_hidden = false;
         hidden_Container.classList.add("active");
-    }else {
+    } else {
         wecker_is_hidden = true;
         hidden_Container.classList.remove("active")
     }
+});
+
+
+btn_save_wecker.addEventListener("click", () => {
+    stand_up_time = inp_wecker.value;
+    if (stand_up_time !== '') {
+        wecker_is_set = true;
+
+        // Wecker Settings schließen
+        hidden_Container.classList.remove("active")
+    } else {
+        wecker_is_set = false;
+    }
 })
+
+function diff_minutes(dt2, dt1) {
+    var distance = dt2 - dt1;
+    // In lesbare Zeit umwandeln
+    var countHours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    var countMinutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+
+    return `Schlafzeit: ${addAZero(countHours)}:${addAZero(countMinutes)}`
+}
+
+
+
