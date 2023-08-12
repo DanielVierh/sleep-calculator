@@ -116,12 +116,14 @@ tr:nth-child(2n+0) {
 
 .wecker-section {
     grid-column: 1 / -1;
-    background-color: rgb(16, 69, 87);
-    border-radius: 15px;
     margin: 15px;
 
     .hidden-content {
         display: grid;
+        background-color: rgb(16, 69, 87);
+        border-radius: 15px;
+        margin: 15px 0;
+      
         grid-template-rows: 0fr;
         transition: grid-template-rows 1s ease;
 
@@ -131,6 +133,7 @@ tr:nth-child(2n+0) {
 
         .content {
             overflow: hidden;
+            grid-column: 1 / -1;
         }
     }
 
@@ -141,5 +144,17 @@ tr:nth-child(2n+0) {
         font-size: 1em;
         box-shadow: inset 0 0 5px white;
         color: white;
+        margin: 0 auto;
+    }
+
+    .savebutton {
+        width: fit-content;
+        padding: 5px;
+        font-size: 1em;
+        box-shadow: inset 0 0 5px white;
+        color: white;
+        margin: 30px;
+        border-radius: 8px;
+        background-color: green;
     }
 }
